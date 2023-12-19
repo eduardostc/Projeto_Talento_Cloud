@@ -1,0 +1,41 @@
+
+-- Tabela Restaurante
+CREATE TABLE Restaurante (
+    ID_Restaurante INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    ID_Localizacao INT,
+    FOREIGN KEY (ID_Localizacao) REFERENCES Localizacao(ID_Localizacao)
+);
+-- Tabela Localizacao
+CREATE TABLE Localizacao (
+    ID_Localizacao INT PRIMARY KEY,
+    Estado VARCHAR(50),
+    Cidade VARCHAR(50)
+);
+
+-- Tabela Usuario
+CREATE TABLE cliente (
+    CPF VARCHAR(11) PRIMARY KEY,
+    Nome VARCHAR(100),
+    Email VARCHAR(100),
+    Senha VARCHAR(100)
+);
+
+-- Tabela Reserva
+CREATE TABLE Reserva (
+    ID_Reserva INT PRIMARY KEY,
+    ID_Restaurante INT,
+    ID_Cliente VARCHAR(11),
+    DataReserva DATE,
+    HoraReserva TIME,
+    NumeroMesa INT,
+    FOREIGN KEY (ID_Restaurante) REFERENCES Restaurante(ID_Restaurante),
+    FOREIGN KEY (ID_Cliente) REFERENCES Cliente(CPF)
+);
+
+CREATE TABLE Restaurante (
+    ID_Restaurante INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    ID_Localizacao INT,
+    FOREIGN KEY (ID_Localizacao) REFERENCES Localizacao(ID_Localizacao)
+);

@@ -1,0 +1,51 @@
+Entidades:
+
+1-Restaurante: Armazena informações sobre os restaurantes.
+2-Cliente: Responsável pelas reservas.
+3-Reserva: Relaciona um cliente a um restaurante em um determinado horário para uma reserva de mesa.
+4-Localização: Uma entidade para representar os estados (São Paulo, Rio Grande do Sul, Minas Gerais, Ceará, Pernambuco) a serem utilizados pelos restaurantes.
+
+ATRIBUTOS:
+
+Restaurante:
+ID_Restaurante (Chave Primária)
+Nome
+ID_Localizacao (Chave Estrangeira referenciando a entidade Localização)
+
+Localização:
+ID_Localizacao (Chave Primária)
+cidade
+Estado (São Paulo, Rio Grande do Sul, Minas Gerais, Ceará, Pernambuco)
+
+Clientes:
+ID_Cliente (Chave Primária)
+Nome
+Email
+Senha
+
+Reserva:
+ID_Reserva (Chave Primária)
+ID_Restaurante (Chave Estrangeira referenciando a entidade Restaurante)
+CPF (Chave Estrangeira referenciando a entidade Clientes)
+DataReserva
+HoraReserva
+NúmeroMesa
+
+
+RELACIONAMENTOS:
+
+Um restaurante está localizado em uma única localização (estado).
+Um restaurante pode ter várias reservas.
+Um cliente pode fazer várias reservas em diferentes restaurantes.
+
+Restaurante - Localização:
+Nome do Relacionamento: "Estar_Em"
+Descrição: Indica que um restaurante está localizado em uma determinada localização (estado).
+
+Restaurante - Reserva:
+Nome do Relacionamento: "Possui_Reservas"
+Descrição: Representa que um restaurante pode ter várias reservas.
+
+Cliente - Reserva:
+Nome do Relacionamento: "Realiza_Reserva"
+Descrição: Indica que um clientes pode fazer várias reservas em diferentes restaurantes.
